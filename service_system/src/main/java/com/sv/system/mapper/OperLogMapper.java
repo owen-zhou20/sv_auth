@@ -1,8 +1,7 @@
 package com.sv.system.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.sv.model.system.SysLoginLog;
-import org.apache.ibatis.annotations.Mapper;
+import com.sv.model.system.SysOperLog;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -16,7 +15,7 @@ import org.springframework.stereotype.Repository;
 
 
 @Repository
-public interface LoginLogMapper extends BaseMapper<SysLoginLog> {
+public interface OperLogMapper extends BaseMapper<SysOperLog> {
 
 
 }

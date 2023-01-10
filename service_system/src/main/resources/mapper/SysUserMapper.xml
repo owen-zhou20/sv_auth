@@ -1,5 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sv.system.mapper.SysUserMapper">
+    <resultMap id="sysUserMap" type="com.sv.model.system.SysUser" autoMapping="true"></resultMap>
+    <select id="selectPage" resultMap="sysUserMap">
+        SELECT id,username,password,name,phone,head_url,post_id,dept_id,
+               description,status,create_time,update_time,is_deleted
+        FROM sys_user
+        <where>
+            <if test="vo.keyword != null and vo.keyword != ''">
+                AND (username LIKE CONCAT('%',#{vo.keyword},'%')
+                OR name LIKE CONCAT('%',#{vo.keyword},'%')
+                OR phone LIKE CONCAT('%',#{vo.keyword},'%'))
+            </if>
+            <if test="vo.createTimeBegin != null and vo.createTimeBegin != ''">
+                AND create_time >= #{vo.createTimeBegin}
+            </if>
+            <if test="vo.createTimeEnd != null and vo.createTimeEnd != ''">
+                AND create_time &lt;= #{vo.createTimeEnd}
+            </if>
+            AND is_deleted = 0
+        </where>
+        ORDER BY id DESC
+    </select>
 
 </mapper>

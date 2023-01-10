@@ -1,11 +1,9 @@
 package com.sv.system.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.sv.model.system.SysUser;
-import com.sv.model.vo.SysUserQueryVo;
-import org.apache.ibatis.annotations.Param;
+import com.sv.model.system.SysLoginLog;
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
 /**
  * <p>
@@ -15,9 +13,10 @@ import org.apache.ibatis.annotations.Param;
  * @author Owen
  * @since 2022-12-14
  */
-public interface SysUserMapper extends BaseMapper<SysUser> {
 
-    // 1. Pagination select roles
-    IPage<SysUser> selectPage(Page<SysUser> pageParam, @Param("vo") SysUserQueryVo sysUserQueryVo);
+
+@Repository
+public interface LoginLogMapper extends BaseMapper<SysLoginLog> {
+
 
 }

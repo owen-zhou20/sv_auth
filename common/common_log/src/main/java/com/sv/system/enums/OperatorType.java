@@ -1,2 +1,21 @@
-package com.sv.system.enums;public enum OperatorType {
+package com.sv.system.enums;
+
+/**
+ * Operator type
+ */
+public enum OperatorType {
+    /**
+     * Ohter
+     */
+    OTHER,
+
+    /**
+     * manage user
+     */
+    MANAGE,
+
+    /**
+     * Mobile user
+     */
+    MOBILE
 }

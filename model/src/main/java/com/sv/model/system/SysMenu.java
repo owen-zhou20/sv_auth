@@ -1,6 +1,6 @@
-package com.atguigu.model.system;
+package com.sv.model.system;
 
-import com.atguigu.model.base.BaseEntity;
+import com.sv.model.base.BaseEntity;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModel;
@@ -18,7 +18,7 @@ public class SysMenu extends BaseEntity {
 
 	@ApiModelProperty(value = "所属上级")
 	@TableField("parent_id")
-	private Long parentId;
+	private String parentId;
 
 	@ApiModelProperty(value = "名称")
 	@TableField("name")

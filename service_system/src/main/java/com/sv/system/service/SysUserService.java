@@ -1,7 +1,12 @@
 package com.sv.system.service;
 
-import com.sv.system.entity.SysUser;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.sv.model.system.SysUser;
+import com.sv.model.vo.SysUserQueryVo;
+
+import java.util.Map;
 
 /**
  * <p>
@@ -13,4 +18,15 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface SysUserService extends IService<SysUser> {
 
+    // 1. Pagination select roles
+    IPage<SysUser> selectPage(Page<SysUser> pageParam, SysUserQueryVo sysUserQueryVo);
+
+    // 6. Modify a user status
+    boolean updateStatus(String id, Integer status);
+
+    // Get user info by username from DB for login
+    SysUser getUserInfoByUserName(String username);
+
+    // Get user info(user info and user's menus) by token
+    Map<String, Object> getUserInfo(String username);
 }

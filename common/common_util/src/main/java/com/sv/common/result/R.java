@@ -7,7 +7,7 @@ import lombok.Data;
  *
  */
 @Data
-public class Result<T> {
+public class R<T> {
     //返回码
     private Integer code;
 
@@ -17,32 +17,32 @@ public class Result<T> {
     //返回数据
     private T data;
 
-    public Result(){}
+    public R(){}
 
     // 返回数据
-    protected static <T> Result<T> build(T data) {
-        Result<T> result = new Result<T>();
+    protected static <T> R<T> build(T data) {
+        R<T> r = new R<T>();
         if (data != null)
-            result.setData(data);
-        return result;
+            r.setData(data);
+        return r;
     }
 
-    public static <T> Result<T> build(T body, Integer code, String message) {
-        Result<T> result = build(body);
-        result.setCode(code);
-        result.setMessage(message);
-        return result;
+    public static <T> R<T> build(T body, Integer code, String message) {
+        R<T> r = build(body);
+        r.setCode(code);
+        r.setMessage(message);
+        return r;
     }
 
-    public static <T> Result<T> build(T body, ResultCodeEnum resultCodeEnum) {
-        Result<T> result = build(body);
-        result.setCode(resultCodeEnum.getCode());
-        result.setMessage(resultCodeEnum.getMessage());
-        return result;
+    public static <T> R<T> build(T body, ResultCodeEnum resultCodeEnum) {
+        R<T> r = build(body);
+        r.setCode(resultCodeEnum.getCode());
+        r.setMessage(resultCodeEnum.getMessage());
+        return r;
     }
 
-    public static<T> Result<T> ok(){
-        return Result.ok(null);
+    public static<T> R<T> ok(){
+        return R.ok(null);
     }
 
     /**
@@ -51,13 +51,13 @@ public class Result<T> {
      * @param <T>
      * @return
      */
-    public static<T> Result<T> ok(T data){
-        Result<T> result = build(data);
+    public static<T> R<T> ok(T data){
+        R<T> r = build(data);
         return build(data, ResultCodeEnum.SUCCESS);
     }
 
-    public static<T> Result<T> fail(){
-        return Result.fail(null);
+    public static<T> R<T> fail(){
+        return R.fail(null);
     }
 
     /**
@@ -66,17 +66,17 @@ public class Result<T> {
      * @param <T>
      * @return
      */
-    public static<T> Result<T> fail(T data){
-        Result<T> result = build(data);
+    public static<T> R<T> fail(T data){
+        R<T> r = build(data);
         return build(data, ResultCodeEnum.FAIL);
     }
 
-    public Result<T> message(String msg){
+    public R<T> message(String msg){
         this.setMessage(msg);
         return this;
     }
 
-    public Result<T> code(Integer code){
+    public R<T> code(Integer code){
         this.setCode(code);
         return this;
     }

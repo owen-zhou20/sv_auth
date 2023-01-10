@@ -1,13 +1,14 @@
-package com.sv;
+package com.sv.system;
 
-/**
- * Hello world!
- *
- */
-public class App 
+import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@MapperScan(basePackages = "com.sv.system.mapper")
+@SpringBootApplication
+public class ServiceAuthApplication
 {
-    public static void main( String[] args )
-    {
-        System.out.println( "Hello World!" );
+    public static void main(String[] args) {
+        SpringApplication.run(ServiceAuthApplication.class, args);
     }
 }

@@ -1,18 +1,18 @@
-package com.atguigu.model.vo;
+package com.sv.model.vo;
 
 
 /**
- * 登录对象
+ * Login Vo
  */
 public class LoginVo {
 
     /**
-     * 手机号
+     * phone No.
      */
     private String username;
 
     /**
-     * 密码
+     * password
      */
     private String password;
 
